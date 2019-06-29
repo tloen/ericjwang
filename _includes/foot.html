@@ -1,0 +1,20 @@
+    <footer>
+        {%- comment -%}
+            If the title is not 'Archive' then point
+            to archive, and if it is then point to
+            the root-/startpage.
+        {%- endcomment -%}
+
+        {%- if page.url == "/" -%}
+            {%- assign url_butt = '/archive' -%}
+            {%- assign text = ' ~/archive ' -%}
+        {%- else -%}
+            {%- assign url_butt = '/' -%}
+            {%- assign text = ' ~/start ' -%}
+        {%- endif -%}
+        <div class="footer">
+            |<a href="{{ site.url }}{{ url_butt }}">{{ text }}</a>|
+        </div> 
+    </footer>
+</body>
+</html>

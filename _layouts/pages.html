@@ -1,0 +1,30 @@
+{%- comment -%}
+    
+    Don't use this layout. It's just a mock-up to show how
+    Kikofri's so called "features", [bugs], work.
+
+    Check out the 'master' branch instead.
+
+{%- endcomment -%}
+
+{%- include head.html -%}
+
+<div class="container_post">
+    {%- include top_small.html -%}
+   
+    {% comment %}
+        Just "showcase" Kikofri-specific stuff.
+    {% endcomment %}
+    {%- if page.title == "What's Kikofri?" -%}
+        {{- content -}}
+    {%- elsif content contains 'µ#' or 'µ;;' or 'µµ' -%}
+        {{- content
+            | replace: 'µ#', '<sup>[' | replace: '#µ', ']</sup>'
+            | replace: 'µ;;', '<b>' | replace: ';;µ', '</b>'
+            | replace: "µµ", "&emsp;" }}
+    {%- else -%}
+        {{- content -}}
+    {%- endif -%}
+</div>
+
+{%- include foot.html -%}

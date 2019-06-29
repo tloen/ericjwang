@@ -1,15 +1,41 @@
 ---
-layout: default_post
+layout: pages
 ---
-<header class="masthead">
-  <h1 class="masthead-title--small">
-    <a href="{{ site.baseurl }}/">{{ site.name }}</a>
-  </h1>
-</header>      
+{%- comment -%}
+    
+    Don't use this layout. It's just a mock-up to show how
+    Kikofri's so called "features", [bugs], work.
+
+    Check out the 'master' branch instead.
+
+{%- endcomment -%}
+
 <div class="content post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <div class="post-date">
+    <h1 class="post-title">{{ page.title }}</h1>
     <time>{{ page.date | date_to_string }}</time>
-  </div>
-  {{ content | replace: "µµ", "&emsp;" }}
+
+        {%- comment -%}
+            micro-hash:
+            Produces "Wikipedia-style" reference links:
+                * "micro-hash" equals 'left backet' ( µ# = '[' ),
+                * "hash-micro" equals 'right bracket' ( #µ = ']' )
+            micro-semis:
+            Produces "Bring Attention To element" tag:
+                * "micro-semis" ('µ;;') equals '<b>'
+                * "semis-micro' (';;µ') equals '</b>'
+            micro-micro:
+                * ('µµ') equals indentation
+        {%- endcomment -%}
+
+        {%- if page.title contains 'Kikofri' -%}
+            {{- content -}}
+        {%- elsif content contains 'µ#' or 'µ;;;' or 'µµ' -%}
+            {{- content
+                | replace: 'µ#', '<sup>[' | replace: '#µ', ']</sup>'
+                | replace: 'µ;;', '<b>' | replace: ';;µ', '</b>'
+                | replace: "µµ", "&emsp;" }}
+        {%- else -%}
+            {{- content -}}
+        {%- endif -%}
+
 </div>

@@ -7,10 +7,11 @@
 name: "K i k o f r i"
 description: "dirty and malnourished jekyll theme"
 author: "kxxvii"
+title: "Kikofri"
 
 # URL
 url: "https://github.com/kxxvii/Kikofri"
-#baseurl: ""
+baseurl: ""
 permalink: /:year/:month/:day/:title.html
 
 # Markdown
@@ -24,32 +25,22 @@ nav:
  - name: "tags"
    href: "/tags"
 
- - name: "references"
-   href: "/ref"
-
  - name: "contact"
    href: "/mailto:ivantheterrible@1530to1584.gov"
 
 # Sass
 sass:
- style: :compressed
+ style: compressed
 
 # Excerpt
 excerpt_separator: <!-ex->
 
 #Gems
-gems: [jekyll-paginate, jekyll-seo-tag]
-paginate: 10
-paginate_path: "/page:num/"
+plugins:
+    - liquid
 
 # Scopes
 defaults:
- -
-  scope:
-   path: ""
-   type: "pages"
-  values:
-   layout: "page"
  -
   scope:
    path: ""

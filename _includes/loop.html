@@ -1,0 +1,30 @@
+{%- comment -%}
+    For pagination-like lists of posts.
+{%- endcomment %}
+
+{%- if page.title == "Archive" -%}
+    {%- assign len = 67 %}
+
+    <time>{{ post.date | date_to_string }} :: </time>
+    <a href="{{ site.baseurl }}{{ post.url }}"
+       id="_{%- increment num -%}">{{ post.title | truncate: 32}}</a>
+
+{%- else -%}
+    {%- assign len = 150 %}
+
+    <style> 
+    p.desc { 
+        text-align: justify;
+    }
+    </style>
+
+    <h2>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </h2>
+    <time>{{ post.date | date_to_string }}</time>
+
+{% endif %}
+
+<p class="desc">
+    {{ post.excerpt | strip_html | truncate: len }}
+</p>
