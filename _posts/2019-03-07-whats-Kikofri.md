@@ -1,7 +1,7 @@
 ---
 title:          "What's Kikofri?"
 description:    "This is the only real post out of all of the example posts. A description of Kikofri."
-date:           2019-07-01
+date:           2019-07-02
 permalink:      /ofri
 layout: post
 tag: Kikofri
@@ -118,7 +118,7 @@ The [archive](/archive) is just a neat list of posts. Since few will write
 ### Some Poetry: ###
 
 **On a more idealistic note**: I always _hated_ the word "blog". I recognize
-one blog and it's [this one][8]. I always preferred the concept of a site,
+one "blog" and it's [this one][8]. I always preferred the concept of a site,
 because it can be anything. A newspaper, an encyclopedia, a collections of
 essays or a book. The 'micros' are small and simple hacks to turn a "blog" into
 something more than just a "blog".
@@ -127,24 +127,27 @@ They are stupid unlikely sequences of symbols to create some neat stuff. While
 still sticking to the goal of being ugly and a _"dirty and malnourished jekyll
 theme"_ of course.
 
+Since I eschew the "blog"-aspect of it all is also reflected in the meta-data
+where Kikofri uses the 'Article' type instead of the 'BlogPosting' type.
+
 [8]: https://metroid.fandom.com/wiki/Alpha_Blogg
 
 ### What It All Boils Down To: ###
 
-There's no reason to use Javascript or something when you can accomplish the
-same things with HTML/CSS.
+There's no reason to use something fancy  when you can accomplish the same
+things with HTML/CSS.
 
-The thing is: a lot of the things people might want to say, write or show don't
+The thing is: a lot of the things people might want to say, write or show won't
 really require all that much. Even if it does it's rarely as much as the first
 5 search engine results makes you think.
 
-Kikofri tries to keep it simple, being partly flawed by design, partly flawed
-because "we're all human". Looking the way it wants instead of following trends
-and it strives to be reasonably easy to modify. Tweaking is learning.
+Kikofri tries to keep it simple, being partly flawed by design. Looking the way
+it wants instead of following trends and it strives to be reasonably easy to
+modify. Tweaking is learning.
 
 Well, of course you can't turn the world upside down with a theme, but worrying
 about your "content", "workflow" and striving to be a automaton spewing out
-what amounts to mere fluff, i.e. "content", is useless.
+mere fluff, i.e. "content", is useless.
 
 [_Don't call it "content"_][works]. It diminishes your work. It makes you a
 commodity and what you create some kind of placeholder waiting to be replaced.
@@ -165,7 +168,8 @@ proper noun if you want to):
 ### Other Important information...
 
 ...usually resides [**HERE**](https://github.com/kxxvii/Kikofri/tree/master),
-but a few clarifications would be in order:
+there are comments in the source files too, but a few clarifications would be
+in order:
 
 #### `_includes`
 
@@ -186,7 +190,8 @@ but a few clarifications would be in order:
 {% endraw %}
 
 Can be set in `_config.yml` for example.
-* `captures.html` Contain most of the meta-data variables for `head.html`. 
+* `captures.html` Contain most of the meta-data variables for `head.html`. You
+  can use these or set value values by hand.
 
 #### `_layouts`
 

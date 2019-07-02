@@ -8,35 +8,19 @@
     <link rel="alternate" type="application/atom+xml" title="Feed for {{ site.url }}" href="/feed.xml">
 
     {%- comment -%}
-        Try to find reasonable data for the
-        meta properties and json.
+        See '_includes/captures.html'.
     {%- endcomment -%}
 
-    {%- if page.description %}
-        {% capture descript %}
-            {{- page.description -}} 
-        {% endcapture %}
-    {% else %}
-        {% capture descript %}
-            {{- site.description -}} 
-        {% endcapture %}
-    {% endif %}
-    {% if page.title %}
-        {% capture title %}
-            {{- page.title -}} 
-        {% endcapture %}
-    {% else %}
-            {% assign title = site.title -%} 
-    {% endif -%}
+    {%- include captures.html %}
 
     <title>{{ title }}</title>
-    <meta name="author" content="{{ site.author }}" />
+    <meta name="author" content="{{ auth | strip }}" />
     <meta name="description" content="{{ site.description }}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <meta property="og:description" content="{{ descript }}" />
-    <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:image" content="{{ page.image }}" />
+    <meta property="og:image" content="{{ img | strip }}" />
     {% if page.date -%}
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
@@ -55,18 +39,40 @@
     <meta property="og:locale" content="en_US" />
     {%- endif %}
     
+    {% comment -%}
+       Instead of just removing the newlines and
+       the whitespace here I left it as it is.
+       Much easier to read/edit should the need
+       arise
+    {%- endcomment -%}
+
     <script type="application/ld+json">
-    {"description":"{{ descript }}",
-    "author":{"@type":"Person","name":"{{ site.author }}"},
-    "@type":"BlogPosting","url":"{{ site.url }}{{ page.url }}",
-    "image":"{{ site.url }}{{ page.image }}","
-    "headline":"{{ title }}",
-    {% if page.date -%}
-    "dateModified":"{{ page.date | date_to_xml_schema }}",
-    "datePublished":"{{ page.date | date_to_xml_schema }}",
-    {%- endif %}
-    "mainEntityOfPage":{"@type":"WebPage","@id":"{{ site.url }}{{ page.url }}"},
-    "@context":"http://schema.org"}
+    {"@context":"http://schema.org",
+     "@type":"Article","url":"{{ site.url }}{{ page.url }}",
+     "publisher":{ 
+     "@type":"Organization","name":"{{ site.name }}",
+       "logo":{
+       "@type":"ImageObject", "url":"{{ log | strip }}"
+       }
+     },
+     "author":{
+     "@type":"Person","name":"{{ auth | strip }}"
+     },
+     "description":"{{ descript }}",
+     "image":"{{ img | strip }}",
+     "headline":"{{ title }}",
+     {% if page.date -%}
+     "datePublished":"{{ page.date | date_to_xml_schema }}",
+     "dateModified":"{{ page.date | date_to_xml_schema }}",
+     {%- else -%}
+     "datePublished":"{{ dat | strip }}",
+     "dateModified":"{{ dat | strip }}",
+     {% endif -%}
+     "mainEntityOfPage":{
+     "@type":"WebPage","@id":"{{ site.url }}{{ page.url }}"
+     }
+    }
     </script>
+
 </head>
 <body>

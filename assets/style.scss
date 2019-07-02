@@ -203,7 +203,7 @@ p.desc {
 img {
   	display: block;
   	max-width: 100%;
-  	margin: auto;
+  	margin: 1rem auto 1rem auto;
   	border-radius: 2px;
 }
 
@@ -334,6 +334,24 @@ hr {
  	padding: 0 0 10px 0;
  	margin: auto;
  }
+
+@media only screen and (max-width: 570px) {
+
+    li {
+        margin: auto;
+        text-align: center;
+        padding: 0 5px 0 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    p.desc {
+        text-align: center;
+    }
+    time {
+        display: none;
+    }
+}
 
 {% comment %}
 /* There used to be syntax highlighting stuff here.

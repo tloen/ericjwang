@@ -1,5 +1,5 @@
 ---
-title:		'06. Example post (not "content")'
+title:		"06. Example post (not 'content', no description)"
 layout: post
 author:		"P.J."
 ---

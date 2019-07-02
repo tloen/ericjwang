@@ -19,33 +19,33 @@
 {% endcapture %}
 
 <li style="list-style-type: none">
-{%- if page.title == "Archive" -%}
-    {%- assign len = 67 %}
-
-    <time>{{ post.date | date_to_string }} :: </time>
-
-    {%- capture id -%}
-        {%- increment num -%}
-    {%- endcapture %}
-
-    <a href="{{ site.baseurl }}{{ post.url }}" id="{{ id }}"
-        title="Post: '{{ id }}'">{{ post.title | truncate: 32}}</a>
-
-{%- else -%}
-    {%- assign len = 150 %}
-
-    <h2>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </h2>
-    <time>{{ post.date | date_to_string }}</time>
-
-{%- endif -%}
-
-{%- if works.size < 115 and page.title != "Archive" %}
-    <p class="desc" style="text-align: center;">
-{% else %}
-    <p class="desc">
-{% endif %}
-    {{- works | truncate: len | strip }}
-    </p>
+    {%- if page.title == "Archive" -%}
+        {%- assign len = 67 %}
+    
+        <time>{{ post.date | date_to_string }} :: </time>
+    
+        {%- capture id -%}
+            {%- increment num -%}
+        {%- endcapture %}
+    
+        <a href="{{ site.baseurl }}{{ post.url }}" id="{{ id }}"
+            title="Post: '{{ id }}'">{{ post.title | truncate: 32}}</a>
+    
+    {%- else -%}
+        {%- assign len = 150 %}
+    
+        <h2>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <time>{{ post.date | date_to_string }}</time>
+    
+    {%- endif -%}
+    
+    {%- if works.size < 115 and page.title != "Archive" %}
+        <p class="desc" style="text-align: center;">
+    {% else %}
+        <p class="desc">
+    {% endif %}
+        {{- works | truncate: len | strip }}
+        </p>
 </li>
