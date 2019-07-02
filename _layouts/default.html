@@ -39,12 +39,10 @@
     {%- if page.pagin -%}
 
         {%- include top_small.html -%}
-        {%- include archive.html -%}
+        {%- include arch_css.html -%}
 
-        {%- for post in site.posts offset: pagnum -%}
-        <li>
+        {%- for post in site.posts offset: pagnum %}
             {% include loop.html %}
-        </li>
         {%- endfor -%}
 
     {%- else -%}

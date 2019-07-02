@@ -23,6 +23,17 @@ body {
       	-ms-text-size-adjust: 100%;
 }
 
+.container {
+  	max-width: 580px;
+  	margin: auto;
+    text-align: center;
+}
+
+.container_post {
+  	max-width: 650px;
+  	margin: auto;
+}
+
 a {
   	color: #800000;
   	text-decoration: none;
@@ -43,6 +54,7 @@ b {
 h1, h2, h3, h4, h5, h6 {
   	margin-top: 0;
   	margin-bottom: .4rem;
+    margin: 1.2rem 0 0.5rem 0;
   	font-weight: 500;
   	line-height: 1;
   	color: #912222;
@@ -52,46 +64,46 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   	font-size: 2rem;
+    margin-bottom: 0;
 }
 
+{%- comment -%}
+    Probably wouldn't 'h2' use this for
+    actual posts. Huge in-post headers
+    just don't look right.
+{%- endcomment -%}
+
+/* Index-page titles */
 h2 {
-  	font-size: 1.5rem;
+  	font-size: 1.45rem;
     font-weight: 400;
     margin: 1.75rem 0 0;
 }
 
-/*In-post main heading*/
+/* In-post main heading */
 h3 {
   	font-size: 1.5rem;
   	text-decoration: underline;
   	margin: 10px 0 5px 0;
 }
 
-/*In-post subheading*/
+/* In-post sub-heading */
 h4 {
   	font-size: 1.25rem;
-  	margin: 10px 0 3px 0;
   	font-weight: 300;
 }
 
 h5  {
   	font-size: 1.15em;
-  	margin: 0.5rem 0 0 0;
 }
 
 h6 {
   	font-size: 1.05rem;
-  	margin: 5px 0 3px 0;
   	font-weight: 300;
 }
 
 p {
   	margin: 0 0 1rem;
-}
-
-ul, ol, dl {
-  	margin-top: 0;
-  	margin-bottom: 1rem;
 }
 
 dt {
@@ -102,50 +114,37 @@ dd {
   	margin-bottom: .5rem;
 }
 
+
 /* START 'ul' */
-ul {
-  	list-style: inside square;
-  	padding-left: .25rem;
-
-  li {
-    	margin-bottom: .25rem;
- }
-
-  ul {
+ul, li {
+  	list-style: square;
+    padding-left: 0.3rem;
+    margin: .25rem 0 .25rem .25rem;
+  li, ul, ol {
     	list-style: inherit;
-    	margin-top: .25rem;
-    	margin-bottom: 0;
-    	padding-left: 1rem;
-    	font-size: 0.85rem;
+    	font-size: 0.9rem;
   }
 
-  ol {
-    	margin-top: .25rem;
-    	margin-bottom: .5rem;
-    	padding-left: 1rem;
-  }
 }
 /* END 'ul' */
 
+
 /* START 'ol' */
 ol {
-  	list-style: inside decimal;
-  	padding-left: .25rem;
+  	list-style: decimal;
+    padding-left: 0.3rem;
+    margin: .25rem 0 .25rem .25rem;
 
-  li {
-    	margin-bottom: .25rem;
-
-  }
-
-  ul,
-  ol {
-    	margin-top: .25rem;
-    	margin-bottom: 0;
-    	padding-left: 1rem;
-    	font-size: 14px;
+  li, ul, ol {
+    	list-style: inherit;
+    	font-size: 0.9rem;
   }
 }
 /* END 'ol' */
+
+li:last-child {
+  margin-bottom: .5rem;
+}
 
 p + h1,
 p + h2,
@@ -183,9 +182,10 @@ blockquote {
 
 pre, code {
     background-color:#eeeeee;
-    font-size:0.8rem;
+    font-size: 0.8rem;
     font-family:'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     overflow: auto;
+    text-transform: none;
 }
 pre {
     padding: 1rem 0.2rem;
@@ -197,6 +197,7 @@ p.desc {
   	font-size: 0.8rem;
     margin-top: 0.6rem;
     margin-bottom: 1.6rem;
+    text-align: justify;
 }
 
 img {
@@ -213,8 +214,7 @@ table {
   	border-collapse: collapse;
 }
 
-td,
-th {
+td,th {
   	padding: .25rem .5rem;
   	border: 1px solid #e5e5e5;
 }
@@ -225,19 +225,9 @@ time {
     text-decoration: overline;
 }
 hr {
-     border:0;
-      border-bottom: .5px solid #808080;
-       margin-bottom: 2.5rem;
-}
-.container {
-  	max-width: 580px;
-  	margin: auto;
-    text-align: center;
-}
-
-.container_post {
-  	max-width: 650px;
-  	margin: auto;
+    border:0;
+    border-bottom: .5px solid #808080;
+    margin-bottom: 2.5rem;
 }
 
 /* START 'header' */
@@ -304,23 +294,6 @@ hr {
 }
 /* END 'header' */
 
-.post {
-  &-title {
-    	font-weight: 400;
-        margin: 0;
-  }
-}
-
-.list {
-    a {
-      color: #660000;
-      &:hover,
-      &:focus {
-      text-decoration: none;
-    }
-  }
-
-}
 
 .tooltip {
   &:hover .tooltiptext {
@@ -362,12 +335,13 @@ hr {
  	margin: auto;
  }
 
-/* There use to be syntax highlighting stuff here.
+{% comment %}
+/* There used to be syntax highlighting stuff here.
    I decided to deem to as "too pretty" so I threw
    it out.
 
    If you like stuff like that you might want to
-   remove the spaces and '!µµ!' and just this:
+   remove the spaces and '!µµ!' and use this:
 
    https://web.archive.org/web/20190307122428/http!µµ!
    s://gist.githubusercontent.com/demisx/025698a7b!µµ!
@@ -377,6 +351,5 @@ hr {
    Or search for it on duckduckgo or something. Sorry
    for the mangled URL. I just don't like long lines.
    "Too pretty".
-
-   The same goes for 'gist'-support.
 */
+{% endcomment %}

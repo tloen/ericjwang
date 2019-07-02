@@ -1,12 +1,15 @@
 ---
-title:		'09. Example post (not "content")'
+title:		"09. Example post (not 'content')"
 description:	"A short description of the works"
 layout: post
 author:		"P.J."
 ---
 
 <style>
-  img {
+
+ /* This is just for the 'img' examples towards the end */
+
+ img {
   border: solid grey 1px;
 }
 

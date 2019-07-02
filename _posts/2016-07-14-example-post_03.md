@@ -1,12 +1,17 @@
 ---
 title:		'03. Example post (not "content")'
-description:	"A short description of the works"
+description:	"This is a description, not an excerpt. I once tried to eat a
+banana and it has since fallen out of favor. I eat rotten tomatoes now just to
+spite all of the worlds hateful bananas."
 layout: post
 author:		"P.J."
 ---
 
 <style>
-  img {
+
+ /* This is just for the 'img' examples towards the end */
+
+ img {
   border: solid grey 1px;
 }
 

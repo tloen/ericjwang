@@ -1,6 +1,6 @@
 ---
 title:		'01. Example post (not "content")'
-description:	"A short description of the works"
+description:	"A boring description. Doesn't matter if it's to show when to justify and not."
 layout: post
 author:		"P.J."
 tags: 
@@ -9,7 +9,10 @@ tags:
 ---
 
 <style>
-  img {
+
+ /* This is just for the 'img' examples towards the end */
+
+ img {
   border: solid grey 1px;
 }
 

@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ site.url }}/assets/style.css" />
     <link rel="alternate" type="application/atom+xml" title="Feed for {{ site.url }}" href="/feed.xml">
 
+    {%- comment -%}
+        Try to find reasonable data for the
+        meta properties and json.
+    {%- endcomment -%}
+
     {%- if page.description %}
         {% capture descript %}
             {{- page.description -}} 
@@ -39,19 +44,27 @@
     <meta property="og:type" content="website" />
     {%- endif %}
     <meta property="og:title" content="{{ title }}" />
-    <meta property="og:locale" content="{{ lang }}" />
+    {% comment -%}
+        Language can be set by setting 'lang: ab_CD'
+        in '_config.yml'.
+    {%- endcomment -%}
+    {% if site.lang -%}
+    <meta property="og:locale" content="{{ site.lang }}" />
     <meta property="og:locale:alternate" content="en_US" />
+    {%- else -%}
+    <meta property="og:locale" content="en_US" />
+    {%- endif %}
     
     <script type="application/ld+json">
     {"description":"{{ descript }}",
-    "author":{"@type":"Person","name":"Johan T-Katiska"},
+    "author":{"@type":"Person","name":"{{ site.author }}"},
     "@type":"BlogPosting","url":"{{ site.url }}{{ page.url }}",
-    "image":"http://localhost:4000/images/notes_pixel.png","
+    "image":"{{ site.url }}{{ page.image }}","
     "headline":"{{ title }}",
     {% if page.date -%}
     "dateModified":"{{ page.date | date_to_xml_schema }}",
     "datePublished":"{{ page.date | date_to_xml_schema }}",
-    {%- endif -%}
+    {%- endif %}
     "mainEntityOfPage":{"@type":"WebPage","@id":"{{ site.url }}{{ page.url }}"},
     "@context":"http://schema.org"}
     </script>

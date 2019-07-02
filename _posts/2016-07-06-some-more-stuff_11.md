@@ -6,7 +6,10 @@ author:		"P.J."
 ---
 
 <style>
-  img {
+
+ /* This is just for the 'img' examples towards the end */
+
+ img {
   border: solid grey 1px;
 }
 

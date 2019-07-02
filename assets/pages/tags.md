@@ -3,6 +3,7 @@ title: Tags
 permalink: /tags
 layout: pages
 ---
+
 <style>
 .tag-box{
     list-style:none;

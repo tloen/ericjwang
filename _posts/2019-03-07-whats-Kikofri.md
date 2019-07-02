@@ -1,8 +1,9 @@
 ---
 title:          "What's Kikofri?"
-description:    "Short description of Kikofri"
-layout: post
+description:    "This is the only real post out of all of the example posts. A description of Kikofri."
+date:           2019-07-01
 permalink:      /ofri
+layout: post
 tag: Kikofri
 ---
 
@@ -32,7 +33,8 @@ filtered through web-design choices from the turn of the millennium.
 The theme doesn't use any Google Analytics spyware by default, and it doesn't rely on
 Google Fonts API for font rendering and the like. Since I never particularly
 liked '[jekyll-seo-tag][2]' there's second-rate implementation of it under
-`\_includes/head.html`. Pure `liquid`. Configure it to your liking.
+`\_includes/head.html`. Pure `liquid`. Configure it to your liking. The _absence_
+of "...battle-tested" templates filled with hype-words guaranteed.
 
 [1]: https://github.com/gfjaru/Kiko
 [2]: https://github.com/jekyll/jekyll-seo-tag
@@ -49,7 +51,7 @@ These are:
 
 * **micro-hash**:  
     Produces "Wikipedia-style" reference links:
-    - "micro-hash" equals 'left backet' ( **`µ#`** = '**`<sup>[`**' ),
+    - "micro-hash" equals 'left bracket' ( **`µ#`** = '**`<sup>[`**' ),
     - "hash-micro" equals 'right bracket' ( **`#µ`** = '**`]</sup>`**' )
             
 * **micro-semis**:  
@@ -116,7 +118,7 @@ The [archive](/archive) is just a neat list of posts. Since few will write
 ### Some Poetry: ###
 
 **On a more idealistic note**: I always _hated_ the word "blog". I recognize
-one blog and it's [this one][8]. I always prefered the concept of a site,
+one blog and it's [this one][8]. I always preferred the concept of a site,
 because it can be anything. A newspaper, an encyclopedia, a collections of
 essays or a book. The 'micros' are small and simple hacks to turn a "blog" into
 something more than just a "blog".
@@ -162,4 +164,51 @@ proper noun if you want to):
 
 ### Other Important information...
 
-...usually resides [**HERE**](https://github.com/kxxvii/Kikofri/tree/master).
+...usually resides [**HERE**](https://github.com/kxxvii/Kikofri/tree/master),
+but a few clarifications would be in order:
+
+#### `_includes`
+
+* `arch_css.html`: Just some cosmetic inline `CSS` for `archive.md`.
+  - If you find the `archive` page to be boring I'll tell you this: **IT'S
+    SUPPOSED TO BE BORING!** A _long_ boring list for the masses.
+* `top_small.html`: Includes `site.name`, or something else if you'd like, at
+  the top of pages. Also makes it easy to exclude from a given page.
+* `foot.html`: Footer. Closes "open tags" in `head.html`.
+* `head.html`: Apart from being `<head>` it contains meta-data. A lot of if can
+  be modified in this file. But entries like:
+    
+{% raw %}
+```
+<meta name="author" content="{{ site.author }}" />
+<meta name="description" content="{{ site.description }}" />
+```
+{% endraw %}
+
+Can be set in `_config.yml` for example.
+* `captures.html` Contain most of the meta-data variables for `head.html`. 
+
+#### `_layouts`
+
+* `default.html`: Creates the index page, and contains `pagnum` post entries.
+* `pages.html`: For separate pages like `about.md`. Also included in:
+* `post.html`: A post-specific layout. Useful if you want to make further
+  changes to posts and pages separately.
+* `pages`/`post` also  contain the [`micros`](#micros) markup.
+
+#### `assets` directory
+
+Contains 'pages', 'images' and 'style.css' to make the root directory less
+cluttered.
+
+* `archive.md`: "placeholder" to produce the archive page. Contains the
+  variable `pagin` that can be true or false.
+  - `pagin` is also found in `index.html`, it's basically just for telling
+    jekyll when to produce a paginated(ish) page. If true: `offset=pagnum`, if
+    false: `limit=pagnum`.
+  - It's inconceivable that one could `pagin`/`pagnum` to produce a second
+    archive page for example.
+
+* `tags.md` contains a bunch in inline `CSS`. The file itself produces the tags
+  page. Since any "day-to-day"-editing seem unlikely — it's automated — it
+  might as well stay there.
