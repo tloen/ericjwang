@@ -78,7 +78,7 @@ layout: pages
 
       <div>
         <span style="float: left;">
-          <a href="{{ post.url }}">{{ post.title | truncate: 46 }}</a>
+          <a href="{{ site.url }}{{ post.url }}">{{ post.title | truncate: 46 }}</a>
         </span>
         <span style="float: right;">
           {{ post.date | date_to_string }}
