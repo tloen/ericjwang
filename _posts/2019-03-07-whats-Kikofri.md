@@ -20,7 +20,7 @@ p.pic {
 }
 </style>
 
-![Kikofrieye. Used as default favicon. CC0.](/ofri/assets/images/kikofrieye.png)
+![Kikofrieye. Used as default favicon. CC0.](/Kikofri/assets/images/kikofrieye.png)
 <p class="pic">Pictured: <em>'Ofri Eyeparchment'</em>. Default
 favicon/spokesperson.  (CC0/Public Domain).</p> 
 
