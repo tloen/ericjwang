@@ -50,5 +50,8 @@ nav:
  - name: "tags"
    href: "/tags"
 
+ - name: "feed"
+   href: "/feed.xml"
+
  - name: "contact"
    href: "/mailto:ivantheterrible@1530to1584.gov"
